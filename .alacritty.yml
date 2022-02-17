@@ -1,7 +1,7 @@
 font:
-  size: 14
+  size: 16
   normal:
-    family: Fira Code
+    family: Dank Mono
     style: Regular
   offset:
     x: 0
