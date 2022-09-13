@@ -95,6 +95,12 @@
   # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
 
+[commit]
+  gpgsign = true
+
+[gpg]
+  program = gpg
+
 [merge]
   # Include summaries of merged commits in newly created merge commit messages
   log = true
