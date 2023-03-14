@@ -10,10 +10,14 @@ ln -sF $DOTIES/git/.gitconfig $HOME/.gitconfig
 ln -sF $DOTIES/git/.gitignore_global $HOME/.gitignore_global
 
 # tmux
-
 rm -rf $HOME/.tmux.conf
 
 ln -sF $DOTIES/tmux/.tmux.conf $HOME/.tmux.conf
+
+# kitty
+rm -rf $HOME/.config/kitty
+
+ln -sF $DOTIES/kitty $HOME/.config/kitty
 
 # zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
