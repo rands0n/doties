@@ -3,11 +3,17 @@
 DOTIES="$(pwd)"
 
 # git
-rm $HOME/.gitconfig
-rm $HOME/.gitignore_global
+rm -rf $HOME/.gitconfig
+rm -rf $HOME/.gitignore_global
 
 ln -sF $DOTIES/git/.gitconfig $HOME/.gitconfig
 ln -sF $DOTIES/git/.gitignore_global $HOME/.gitignore_global
+
+# tmux
+
+rm -rf $HOME/.tmux.conf
+
+ln -sF $DOTIES/tmux/.tmux.conf $HOME/.tmux.conf
 
 # zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
