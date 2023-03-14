@@ -19,6 +19,11 @@ rm -rf $HOME/.config/kitty
 
 ln -sF $DOTIES/kitty $HOME/.config/kitty
 
+# nvim
+rm -rf $HOME/.config/nvim
+
+ln -sF $DOTIES/nvim $HOME/.config/nvim
+
 # zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
