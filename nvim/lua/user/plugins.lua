@@ -33,10 +33,27 @@ use('tpope/vim-eunuch')
 use('sheerun/vim-polyglot')
 use('christoomey/vim-tmux-navigator')
 use('nelstrom/vim-visual-star-search')
+use('jessarcher/vim-heritage')
 use('farmergreg/vim-lastplace')
 
 -- using packer.nvim
-use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+
+use({
+  'akinsho/bufferline.nvim',
+  tag = "v3.*",
+  requires = 'nvim-tree/nvim-web-devicons',
+  after = "onedark.nvim",
+  config = function()
+    require('user.plugins.bufferline')
+  end,
+})
+
+use({
+  'lukas-reineke/indent-blankline.nvim',
+  config = function()
+    require('user.plugins.indent-blankline')
+  end,
+})
 
 use({
   'airblade/vim-rooter',
@@ -76,9 +93,25 @@ use({
 })
 
 use({
-  'morhetz/gruvbox',
+  'nvim-lualine/lualine.nvim',
+  requires = 'kyazdani42/nvim-web-devicons',
   config = function()
-    vim.cmd('colorscheme gruvbox')
+    require('user.plugins.lualine')
+  end,
+})
+
+use({
+  'kyazdani42/nvim-tree.lua',
+  requires = 'kyazdani42/nvim-web-devicons',
+  config = function()
+    require('user.plugins.nvim-tree')
+  end,
+})
+
+use({
+  'jessarcher/onedark.nvim',
+  config = function()
+    vim.cmd('colorscheme onedark')
 
     -- Hide the characters in FloatBorder
     vim.api.nvim_set_hl(0, 'FloatBorder', {
@@ -103,9 +136,33 @@ use({
   end,
 })
 
---
+use({
+  'glepnir/dashboard-nvim',
+  event = 'VimEnter',
+  requires = {'nvim-tree/nvim-web-devicons'},
+  config = function()
+    require('user.plugins.dashboard-nvim')
+  end,
+})
 
-require("bufferline").setup{}
+use({
+  'lewis6991/gitsigns.nvim',
+  setup = function()
+    require('gitsigns').setup()
+
+    vim.keymap.set('n', ']h', '<cmd>Gitsigns next_hunk<CR>')
+    vim.keymap.set('n', '[h', '<cmd>Gitsigns prev_hunk<CR>')
+    vim.keymap.set('n', 'gs', '<cmd>Gitsigns stage_hunk<CR>')
+    vim.keymap.set('n', 'gS', '<cmd>Gitsigns undo_stage_hunk<CR>')
+    vim.keymap.set('n', 'gp', '<cmd>Gitsigns preview_hunk<CR>')
+    vim.keymap.set('n', 'gb', '<cmd>Gitsigns blame_line<CR>')
+  end
+})
+
+use({
+  'tpope/vim-fugitive',
+  requires = 'tpope/vim-rhubard',
+})
 
 --
 
