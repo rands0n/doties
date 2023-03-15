@@ -176,6 +176,20 @@ use({
   'tpope/vim-fugitive',
 })
 
+use({
+  'nvim-treesitter/nvim-treesitter',
+  run = function()
+    require('nvim-treesitter.install').update({ with_sync = true })
+  end,
+  requires = {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    'JoosepAlviste/nvim-ts-context-commentstring'
+  },
+  config = function()
+    require('user.plugins.treesitter')
+  end,
+})
+
 --
 
 -- Automatically install plugins on first run
