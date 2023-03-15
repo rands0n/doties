@@ -148,20 +148,32 @@ use({
 use({
   'lewis6991/gitsigns.nvim',
   setup = function()
-    require('gitsigns').setup()
+    require('gitsigns').setup({
+      sign_priority = 6,
+      on_attach = function(bufnr)
+        vim.keymap.set('n', ']h', '<cmd>Gitsigns next_hunk<CR>')
+        vim.keymap.set('n', '[h', '<cmd>Gitsigns prev_hunk<CR>')
+        vim.keymap.set('n', 'gs', '<cmd>Gitsigns stage_hunk<CR>')
+        vim.keymap.set('n', 'gS', '<cmd>Gitsigns undo_stage_hunk<CR>')
+        vim.keymap.set('n', 'gp', '<cmd>Gitsigns preview_hunk<CR>')
+        vim.keymap.set('n', 'gb', '<cmd>Gitsigns blame_line<CR>')
+      end,
+    })
+  end,
+})
 
-    vim.keymap.set('n', ']h', '<cmd>Gitsigns next_hunk<CR>')
-    vim.keymap.set('n', '[h', '<cmd>Gitsigns prev_hunk<CR>')
-    vim.keymap.set('n', 'gs', '<cmd>Gitsigns stage_hunk<CR>')
-    vim.keymap.set('n', 'gS', '<cmd>Gitsigns undo_stage_hunk<CR>')
-    vim.keymap.set('n', 'gp', '<cmd>Gitsigns preview_hunk<CR>')
-    vim.keymap.set('n', 'gb', '<cmd>Gitsigns blame_line<CR>')
+use({
+  'voldikss/vim-floaterm',
+  config = function()
+    vim.g.floaterm_height = 0.4
+    vim.g.floaterm_wintype = 'split'
+    vim.keymap.set('n', '<A-1>', ':FloatermToggle<CR>')
+    vim.keymap.set('t', '<A-1>', '<C-\\><C-n>:FloatermToggle<CR>')
   end
 })
 
 use({
   'tpope/vim-fugitive',
-  requires = 'tpope/vim-rhubard',
 })
 
 --
