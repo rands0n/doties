@@ -24,7 +24,7 @@ vim.opt.clipboard = 'unnamedplus' -- Use Linux system clipboard
 vim.opt.confirm = true -- ask for confirmation instead of error
 vim.opt.undofile = true -- persistent undo
 vim.opt.backup = true -- automatically save a backup file
-vim.opt.signcolumn = 'yes:1'
+vim.opt.signcolumn = 'yes:2'
 vim.opt.backupdir:remove('.') -- keep backups out of the current directory
 vim.opt.shortmess:append({ I = true }) -- disable the splash screen
 vim.opt.wildmode = 'longest:full,full' -- complete the longest common match, and allow tabbing the results to fully complete them

@@ -30,6 +30,7 @@ use('tpope/vim-surround')
 use('tpope/vim-repeat')
 use('tpope/vim-sleuth')
 use('tpope/vim-eunuch')
+use('tpope/vim-fugitive')
 use('sheerun/vim-polyglot')
 use('christoomey/vim-tmux-navigator')
 use('nelstrom/vim-visual-star-search')
@@ -173,20 +174,44 @@ use({
 })
 
 use({
-  'tpope/vim-fugitive',
-})
-
-use({
   'nvim-treesitter/nvim-treesitter',
-  run = function()
-    require('nvim-treesitter.install').update({ with_sync = true })
-  end,
+  run = ':TSUpdate',
   requires = {
+    'nvim-treesitter/playground',
     'nvim-treesitter/nvim-treesitter-textobjects',
-    'JoosepAlviste/nvim-ts-context-commentstring'
+    'JoosepAlviste/nvim-ts-context-commentstring',
   },
   config = function()
     require('user.plugins.treesitter')
+  end,
+})
+
+use({
+  'neovim/nvim-lspconfig',
+  requires = {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+  },
+  config = function()
+    require('user.plugins.lspconfig')
+  end,
+})
+
+use({
+  'hrsh7th/nvim-cmp',
+  requires = {
+    'L3MON4D3/LuaSnip',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    'hrsh7th/cmp-nvim-lua',
+    'jessarcher/cmp-path',
+    'onsails/lspkind-nvim',
+    'saadparwaiz1/cmp_luasnip',
+  },
+  config = function()
+    require('user.plugins.cmp')
   end,
 })
 

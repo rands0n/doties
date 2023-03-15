@@ -47,16 +47,15 @@ telescope.setup({
   },
 })
 
-
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('live_grep_args')
 
-vim.keymap.set('n', '<C-p>', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
-vim.keymap.set('n', '<C>-f', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]]) -- luacheck: no max line length
+vim.keymap.set('n', '<C-p>', [[<cmd>lua require('telescope.builtin').find_files({ prompt_title = 'Main files' })<CR>]])
+vim.keymap.set('n', '<C-P>', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]])
 vim.keymap.set('n', '<C-b>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 vim.keymap.set('n', '<C-f>', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]])
-vim.keymap.set('n', '<leader>h', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
-vim.keymap.set('n', '<leader>s', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])
+vim.keymap.set('n', '<C-h>', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
+vim.keymap.set('n', '<C-r>', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])
 
 vim.keymap.set('n', '<C-g>', [[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>]])
 
