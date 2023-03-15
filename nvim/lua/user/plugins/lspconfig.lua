@@ -1,6 +1,7 @@
 require('mason').setup()
 require('mason-lspconfig').setup({ automatic_installation = true })
 
+-- nvim-cmp supports additional completion capabilities
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Elixir
@@ -45,6 +46,27 @@ vim.diagnostic.config({
     end,
   },
 })
+
+-- JSON
+require('lspconfig').jsonls.setup({
+  capabilities = capabilities,
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+    }
+  }
+})
+
+-- YAML
+require('lspconfig').yamlls.setup({
+  capabilities = capabilities,
+  settings = {
+    yaml = {
+      schemas = require('schemastore').yaml.schemas(),
+    }
+  }
+})
+
 
 vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
 vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
