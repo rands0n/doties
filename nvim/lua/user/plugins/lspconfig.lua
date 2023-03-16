@@ -4,16 +4,6 @@ require('mason-lspconfig').setup({ automatic_installation = true })
 -- nvim-cmp supports additional completion capabilities
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- Elixir
-require('lspconfig').elixirls.setup({ capabilities = capabilities })
-
--- Typescript
-require('lspconfig').tsserver.setup({ capabilities = capabilities })
-
--- Tailwind
-require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
-
-
 vim.keymap.set('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { buffer = bufnr })
 vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>', { buffer = bufnr })
@@ -47,7 +37,13 @@ vim.diagnostic.config({
   },
 })
 
--- JSON
+require('lspconfig').elixirls.setup({ capabilities = capabilities })
+require('lspconfig').tsserver.setup({ capabilities = capabilities })
+require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
+require('lspconfig').html.setup({ capabilities = capabilities })
+require('lspconfig').emmet_ls.setup({ capabilities = capabilities })
+require('lspconfig').dockerls.setup({ capabilities = capabilities })
+
 require('lspconfig').jsonls.setup({
   capabilities = capabilities,
   settings = {
@@ -57,7 +53,6 @@ require('lspconfig').jsonls.setup({
   }
 })
 
--- YAML
 require('lspconfig').yamlls.setup({
   capabilities = capabilities,
   settings = {
