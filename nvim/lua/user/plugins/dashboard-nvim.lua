@@ -8,7 +8,7 @@ require('dashboard').setup({
     header = {
       '',
       '',
-      'Randson',
+      '',
       '',
       ''
     },
@@ -18,6 +18,7 @@ require('dashboard').setup({
       { icon = '  ', shortcut = 'SPC f', desc = 'Find file                 Ctrl+p', action = 'Telescope find_files' },
       { icon = '  ', shortcut = 'SPC h', desc = 'Recent files              Ctrl+h', action = 'Telescope oldfiles' },
       { icon = '  ', shortcut = 'SPC g', desc = 'Find Word                 Ctrl+g', action = 'Telescope live_grep' },
+      { icon = '☁  ', shortcut = 'SPC t', desc = 'Toggle Terminal           Alt+1', action = 'FloatermToggle'},
     },
 
     footer = {},

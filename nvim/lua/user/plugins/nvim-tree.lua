@@ -1,6 +1,3 @@
--- vim.g.nvim_tree_indent_markers = 1
--- vim.g.nvim_tree_git_hl = 1
-
 require('nvim-tree').setup({
   git = {
     ignore = false,
@@ -27,5 +24,8 @@ vim.cmd([[
   augroup end
 ]])
 
-vim.keymap.set('n', '<leader>n', ':NvimTreeFindFileToggle<CR>')
+vim.g.nvim_tree_indent_markers = 1
+vim.g.nvim_tree_git_hl = 1
+
+vim.keymap.set('n', '<A-\\>', ':NvimTreeFindFileToggle<CR>')
 

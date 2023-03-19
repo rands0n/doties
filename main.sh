@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-DOTIES="$(pwd)"
+DOTIES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # git
 rm -rf $HOME/.gitconfig

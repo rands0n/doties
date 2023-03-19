@@ -9,7 +9,7 @@ require('bufferline').setup({
     offsets = {
       {
         filetype = 'NvimTree',
-        text = '  Files',
+        text = '  Explorer',
         highlight = 'StatusLine',
         text_align = 'left',
       },
