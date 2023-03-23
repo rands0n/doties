@@ -28,3 +28,5 @@ ln -sF $DOTIES/nvim $HOME/.config/nvim
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+
+ln -sF $DOTIES/zsh/zuq.zsh-theme $HOME/.oh-my-zsh/themes/zuq.zsh-theme
