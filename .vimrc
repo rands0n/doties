@@ -2,7 +2,12 @@ call plug#begin()
 
 Plug 'tpope/vim-surround'
 Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'glepnir/dashboard-nvim'
+Plug 'voldikss/vim-floaterm'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -55,3 +60,12 @@ augroup autosourcing
   autocmd BufWritePost .vimrc source %      " Automatically source .vimrc file on save.
 augroup END
 
+" FZF
+nmap <C-p> :Files<cr>
+nmap <C-h> :History<cr>
+nmap <C-b> :Buffers<cr>
+nmap <C-g> :Ag<cr>
+
+" Floaterm
+let g:floaterm_wintype='split'
+nmap <C-a> <esc>:FloatermToggle<cr>
