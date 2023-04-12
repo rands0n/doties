@@ -3,9 +3,9 @@ call plug#begin()
 Plug 'tpope/vim-surround'
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'glepnir/dashboard-nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -14,6 +14,9 @@ call plug#end()
 syntax enable                               " Enable syntax for all files
 colorscheme onedark                         " Enable a default desert colorscheme
 
+set encoding=utf-8                          " Sets the encoding to use inside Vim
+set nocompatible                            " Disable compatibility with Vi
+set nobackup                                " Disable backup of files when opening it
 set backspace=indent,eol,start              " Make backspaces behaves like every other editor
 set number                                  " Enable numbers
 set relativenumber                          " Make numbers relative, very good to jump between lines
@@ -27,7 +30,6 @@ set linespace=25                            " For those editors that support lin
 set hlsearch                                " Highlight what we type for search
 set incsearch                               " Allow increment highlight happens
 set termguicolors                           " Set more color if terminal supports it
-
 set confirm                                 " Ask for confirmation instead of an error
 set signcolumn=auto                         " Only draw signcolumn if necessary
 
@@ -69,3 +71,4 @@ nmap <C-g> :Ag<cr>
 " Floaterm
 let g:floaterm_wintype='split'
 nmap <C-a> <esc>:FloatermToggle<cr>
+tmap <C-a> <esc>:FloatermToggle<cr>
