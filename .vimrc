@@ -56,6 +56,8 @@ vmap > >gv                                  " Maintain selection after moving in
 imap ;; <esc>A;<esc>                        " Insert ; at the end of line if possible
 imap ,, <esc>A,<esc>                        " Insert comma at the end of line if possible
 
+inoremap jj <esc>                           " Enter normal mode when navigating through lines
+
 " Auto Mappings
 augroup autosourcing
   autocmd!
